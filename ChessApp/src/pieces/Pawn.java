@@ -1,7 +1,9 @@
-/**
- * Created by vickys on 27/08/14.
- */
+package pieces;
+
 public class Pawn {
+
+    public static final String BLACK = "black";
+    public static final String WHITE = "white";
 
     private String colour;
 
@@ -11,5 +13,9 @@ public class Pawn {
 
     public String getColour() {
         return colour;
+    }
+
+    public Pawn() {
+        this.colour = WHITE;
     }
 }
