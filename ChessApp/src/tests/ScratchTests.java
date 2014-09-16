@@ -22,4 +22,9 @@ public class ScratchTests extends TestCase {
         five.times(2);
         assertEquals(5,five.amount);
     }
+
+    public void testEquality(){
+        assertTrue(new Dollar(5).equals(new Dollar(5)));
+        assertFalse((new Dollar(5).equals(new Dollar(6))));
+    }
 }
