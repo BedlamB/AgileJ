@@ -10,6 +10,4 @@ public class ChessTestSuite {
         suite.addTestSuite(ChessBoardTest.class);
         return suite;
     }
-
-
 }

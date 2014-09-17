@@ -1,14 +1,14 @@
 package tests;
 
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
 
 public class CharacterTest extends TestCase {
 
     public void testWhitespace() {
-        assertEquals(true, Character.isWhitespace('\n'));
-        assertEquals(true, Character.isWhitespace('\t'));
-        assertEquals(true, Character.isWhitespace(' '));
+        assertTrue(Character.isWhitespace('\n'));
+        assertTrue(Character.isWhitespace('\t'));
+        assertTrue(Character.isWhitespace(' '));
     }
 
     public void testIsValidIdentifier() {

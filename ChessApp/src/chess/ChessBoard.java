@@ -6,20 +6,69 @@ import java.util.ArrayList;
 
 public class ChessBoard {
 
-    private ArrayList<Pawn> board = new ArrayList<Pawn>();
+    private ArrayList<ArrayList<Pawn>> board = new ArrayList<ArrayList<Pawn>>();
+
+    public static final String LINE_END = System.getProperty("line.separator");
+
+    public int pieceCount;
 
     public ChessBoard() {
+        initialize();
     }
 
-    public int getSize() {
-        return board.size();
+    private void initialize() {
+
+        addBlankRank();
+        addWhitePawnRank();
+        addBlankRank();
+        addBlankRank();
+        addBlankRank();
+        addBlankRank();
+        addBlackPawnRank();
+        addBlankRank();
+
     }
 
-    public void add(Pawn pawn) {
-        board.add(pawn);
+    private void addWhitePawnRank() {
+        pieceCount += 8;
+        addRank(Pawn.WHITE, Pawn.WHITE_REPRESENTATION);
     }
 
-    public Pawn getPawn(int i) {
-        return board.get(i);
+    private void addBlackPawnRank() {
+        pieceCount += 8;
+        addRank(Pawn.BLACK, Pawn.BLACK_REPRESENTATION);
     }
+
+    private void addBlankRank() {
+        Pawn blank = new Pawn("", ".");
+        ArrayList<Pawn> rank = new ArrayList<Pawn>();
+        for (int i = 0; i < 8; i++) {
+            rank.add(blank);
+        }
+        board.add(rank);
+    }
+
+    private void addRank(String colour, String representation) {
+        ArrayList<Pawn> rank = new ArrayList<Pawn>();
+        for (int i = 0; i < 8; i++) {
+            rank.add(new Pawn(colour, representation));
+        }
+        board.add(rank);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder rankString = new StringBuilder();
+        for (ArrayList<Pawn> rank : board) {
+            for (Pawn pawn : rank)
+                rankString.append(pawn.toString());
+                rankString.append(LINE_END);
+        }
+        return rankString.toString();
+    }
+
+    public int pieceCount() {
+        return pieceCount;
+    }
+
 }

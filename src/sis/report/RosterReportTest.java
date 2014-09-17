@@ -6,8 +6,7 @@ import sis.studentinfo.*;
 public class RosterReportTest extends TestCase {
 
     public void testRosterReport() {
-        DateUtil dateUtil = new DateUtil();
-        CourseSession session = new CourseSession("ENGL", "101", dateUtil.createDate(2003, 1, 6));
+        CourseSession session = new CourseSession("ENGL", "101", DateUtil.createDate(2003, 1, 6));
 
         session.enroll(new Student("A"));
         session.enroll(new Student("B"));

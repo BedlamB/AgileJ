@@ -6,14 +6,19 @@ import pieces.Pawn;
 
 public class PawnTest extends TestCase {
 
-    public void testCreatePawns(){
-        Pawn pawn = new Pawn(Pawn.WHITE);
+    public void testCreateDefault() {
+        Pawn pawn = new Pawn();
         Assert.assertEquals(Pawn.WHITE, pawn.getColour());
+        Assert.assertEquals(".", pawn.toString());
+    }
 
-        Pawn pawn2 = new Pawn(Pawn.BLACK);
-        Assert.assertEquals(Pawn.BLACK, pawn2.getColour());
+    public void testCreateColouredPawn() {
+        Pawn whitePawn = new Pawn(Pawn.WHITE, Pawn.WHITE_REPRESENTATION);
+        Assert.assertEquals(Pawn.WHITE, whitePawn.getColour());
+        Assert.assertEquals("p", whitePawn.toString());
 
-        Pawn pawn3 = new Pawn();
-        Assert.assertEquals(Pawn.WHITE, pawn3.getColour());
+        Pawn blackPawn = new Pawn(Pawn.BLACK, Pawn.BLACK_REPRESENTATION);
+        Assert.assertEquals(Pawn.BLACK, blackPawn.getColour());
+        Assert.assertEquals("P", blackPawn.toString());
     }
 }
