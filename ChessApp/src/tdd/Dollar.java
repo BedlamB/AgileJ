@@ -1,8 +1,6 @@
-package tests;
+package tdd;
 
-public class Dollar {
-
-    public int amount;
+public class Dollar extends Money {
 
     public Dollar(int amount) {
         this.amount = amount;
@@ -13,13 +11,8 @@ public class Dollar {
     }
 
     @Override
-    public boolean equals(Object object) {
-        Dollar dollar = (Dollar) object;
-        return amount == dollar.amount;
-    }
-
-    @Override
     public int hashCode() {
         return amount;
     }
+
 }

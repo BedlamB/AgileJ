@@ -2,7 +2,6 @@ package tests;
 
 import junit.framework.TestCase;
 
-
 public class CharacterTest extends TestCase {
 
     public void testWhitespace() {

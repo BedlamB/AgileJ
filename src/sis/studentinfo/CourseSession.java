@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.swing.text.html.CSS;
+
 /**
  * This class provides a representation of a single-semester
  * session of a specific university course.
@@ -12,18 +14,19 @@ import java.util.GregorianCalendar;
  */
 public class CourseSession {
 
+    private static int count;
+
     private String department;
     private String number;
     private ArrayList<Student> students =
             new ArrayList<Student>();
     private Date startDate;
-
     /**
      * Constructs a sis.studentinfo.CourseSession starting on a specific date
      *
      * @param startDate the date on which the sis.studentinfo.CourseSession begins
      */
-    public CourseSession(String department, String number, Date startDate) {
+    private CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.startDate = startDate;
@@ -31,6 +34,18 @@ public class CourseSession {
 
     String getDepartment() {
         return department;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void resetCount() {
+        count = 0;
+    }
+
+    private static void incrementCount() {
+        CourseSession.count++;
     }
 
     String getNumber() {
@@ -70,5 +85,10 @@ public class CourseSession {
                 sessionLength * daysInWeek - daysFromFridayToMonday;
         calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
         return calendar.getTime();
+    }
+
+    public static CourseSession create(String department, String number, Date startDate) {
+        incrementCount();
+        return new CourseSession(department, number, startDate);
     }
 }

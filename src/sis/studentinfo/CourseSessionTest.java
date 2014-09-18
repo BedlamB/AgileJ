@@ -9,7 +9,7 @@ public class CourseSessionTest extends TestCase {
 
    public void setUp() {
       startDate = DateUtil.createDate(2003, 1, 6);
-      session = new CourseSession("ENGL", "101", startDate);
+      session = createCourseSession();
    }
 
    public void testCreate() {
@@ -36,4 +36,16 @@ public class CourseSessionTest extends TestCase {
       Date sixteenWeeksOut = DateUtil.createDate(2003, 4, 25);
       assertEquals(sixteenWeeksOut, session.getEndDate());
    }
+
+   public void testCount() {
+       CourseSession.resetCount();
+       createCourseSession();
+       assertEquals(1, CourseSession.getCount());
+       createCourseSession();
+       assertEquals(2,CourseSession.getCount());
+   }
+
+    private CourseSession createCourseSession() {
+       return CourseSession.create("ENGL", "101", startDate);
+    }
 }
