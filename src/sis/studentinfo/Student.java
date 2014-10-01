@@ -1,13 +1,39 @@
 package sis.studentinfo;
 
 public class Student {
-   private String name;
 
-   public Student(String name) {
-      this.name = name;
-   }
+    public static final String IN_STATE = "CO";
+    public static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
+    private String name;
+    private int credits;
+    private String state = "";
 
-   public String getName() {
-      return name;
-   }
+    public Student(String name) {
+        this.name = name;
+        credits = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isFullTime() {
+        return credits >= CREDITS_REQUIRED_FOR_FULL_TIME;
+    }
+
+    public int getCredits() {
+        return credits;
+    }
+
+    public void addCredits(int credits) {
+        this.credits += credits;
+    }
+
+    public boolean isInState() {
+        return false;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

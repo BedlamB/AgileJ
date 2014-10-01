@@ -21,6 +21,8 @@ public class CourseSession {
     private ArrayList<Student> students =
             new ArrayList<Student>();
     private Date startDate;
+    private int numberOfCredits;
+
     /**
      * Constructs a sis.studentinfo.CourseSession starting on a specific date
      *
@@ -57,6 +59,7 @@ public class CourseSession {
     }
 
     public void enroll(Student student) {
+        student.addCredits(numberOfCredits);
         students.add(student);
     }
 
@@ -90,5 +93,9 @@ public class CourseSession {
     public static CourseSession create(String department, String number, Date startDate) {
         incrementCount();
         return new CourseSession(department, number, startDate);
+    }
+
+    public void setNumberOfCredits(int credits) {
+        numberOfCredits = credits;
     }
 }
