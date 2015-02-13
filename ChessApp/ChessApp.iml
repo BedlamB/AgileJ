@@ -16,6 +16,23 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../junit3.8.1" />
+          <root url="file://$MODULE_DIR$/../../junit3.8.1" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$MODULE_DIR$/../../junit3.8.1/javadoc" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../junit3.8.1" />
+          <root url="file://$MODULE_DIR$/../../junit3.8.1" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../junit3.8.1" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../junit3.8.1" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
 

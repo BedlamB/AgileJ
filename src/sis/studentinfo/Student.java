@@ -30,7 +30,7 @@ public class Student {
     }
 
     public boolean isInState() {
-        return false;
+        return state.equals(Student.IN_STATE);
     }
 
     public void setState(String state) {

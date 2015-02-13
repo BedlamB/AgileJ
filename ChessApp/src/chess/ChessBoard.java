@@ -1,14 +1,15 @@
 package chess;
 
-import pieces.Pawn;
-
 import java.util.ArrayList;
+
+import pieces.Pawn;
+import util.StringUtil;
 
 public class ChessBoard {
 
     private ArrayList<ArrayList<Pawn>> board = new ArrayList<ArrayList<Pawn>>();
 
-    public static final String LINE_END = System.getProperty("line.separator");
+
 
     public int pieceCount;
 
@@ -62,7 +63,7 @@ public class ChessBoard {
         for (ArrayList<Pawn> rank : board) {
             for (Pawn pawn : rank)
                 rankString.append(pawn.toString());
-                rankString.append(LINE_END);
+                rankString.append(StringUtil.appendNewLine(""));
         }
         return rankString.toString();
     }

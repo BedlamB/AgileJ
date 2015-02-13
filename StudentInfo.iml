@@ -2,6 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/bin" />
+    <output-test url="file://$MODULE_DIR$/classes/test/StudentInfo" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
@@ -11,7 +12,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../IntellijCUR/idea-IC-129.713/lib/junit.jar!/" />
+          <root url="jar://$MODULE_DIR$/../junit3.8.1/junit.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
