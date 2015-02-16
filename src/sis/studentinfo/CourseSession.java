@@ -34,7 +34,7 @@ public class CourseSession {
         this.startDate = startDate;
     }
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
@@ -50,7 +50,7 @@ public class CourseSession {
         CourseSession.count++;
     }
 
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 

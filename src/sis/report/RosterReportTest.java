@@ -12,6 +12,7 @@ public class RosterReportTest extends TestCase {
         session.enroll(new Student("B"));
 
         String rosterReport = new RosterReport(session).getReport();
+        System.out.println(rosterReport);
 
         assertEquals(
                 RosterReport.ROSTER_REPORT_HEADER +
