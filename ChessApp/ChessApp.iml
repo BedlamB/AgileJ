@@ -33,6 +33,7 @@
         <jarDirectory url="file://$MODULE_DIR$/../../junit3.8.1" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="junit" level="project" />
   </component>
 </module>
 

@@ -12,7 +12,7 @@ import javax.swing.text.html.CSS;
  * session of a specific university course.
  * @author Administrator
  */
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession>{
 
     private static int count;
 
@@ -97,5 +97,10 @@ public class CourseSession {
 
     public void setNumberOfCredits(int credits) {
         numberOfCredits = credits;
+    }
+
+    @Override
+    public int compareTo(CourseSession session) {
+        return this.getDepartment().compareTo(session.getDepartment());
     }
 }

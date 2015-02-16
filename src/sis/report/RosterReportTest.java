@@ -3,6 +3,9 @@ package sis.report;
 import junit.framework.TestCase;
 import sis.studentinfo.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class RosterReportTest extends TestCase {
 
     public void testRosterReport() {
@@ -21,4 +24,6 @@ public class RosterReportTest extends TestCase {
                         RosterReport.ROSTER_REPORT_FOOTER + "2" +
                         RosterReport.NEWLINE, rosterReport);
     }
+
+
 }
