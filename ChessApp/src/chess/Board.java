@@ -19,19 +19,19 @@ public class Board {
 
     public void initialize() {
 
-        addRoyalRank(Piece.WHITE);
+        addRoyalRank("WHITE");
         addWhitePawnRank();
         addBlankRank();
         addBlankRank();
         addBlankRank();
         addBlankRank();
         addBlackPawnRank();
-        addRoyalRank(Piece.BLACK);
+        addRoyalRank("BLACK");
 
     }
 
-    private void addRoyalRank(String colour) {
-        if (colour == Piece.WHITE)
+    private void addRoyalRank(Piece.Colour colour) {
+        if (colour.toString() == "WHITE")
         {
             Piece.whiteCount += 8;
         } else
@@ -39,25 +39,25 @@ public class Board {
             Piece.blackCount += 8;
         }
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createPiece(colour, "R"));
-        rank.add(Piece.createPiece(colour, "N"));
-        rank.add(Piece.createPiece(colour, "B"));
-        rank.add(Piece.createPiece(colour, "Q"));
-        rank.add(Piece.createPiece(colour, "K"));
-        rank.add(Piece.createPiece(colour, "B"));
-        rank.add(Piece.createPiece(colour, "N"));
-        rank.add(Piece.createPiece(colour, "R"));
+        rank.add(Piece.createPiece(Piece.Type.ROOK, colour));
+        rank.add(Piece.createPiece(Piece.Type.KNIGHT, colour));
+        rank.add(Piece.createPiece(Piece.Type.BISHOP, colour));
+        rank.add(Piece.createPiece(Piece.Type.QUEEN, colour));
+        rank.add(Piece.createPiece(Piece.Type.KING, colour));
+        rank.add(Piece.createPiece(Piece.Type.BISHOP, colour));
+        rank.add(Piece.createPiece(Piece.Type.KNIGHT, colour));
+        rank.add(Piece.createPiece(Piece.Type.ROOK, colour));
         board.add(rank);
     }
 
     private void addWhitePawnRank() {
         Piece.whiteCount += 8;
-        addRank(Piece.WHITE, "P");
+        addRank("WHITE", "P");
     }
 
     private void addBlackPawnRank() {
         Piece.blackCount += 8;
-        addRank(Piece.BLACK, "P");
+        addRank("BLACK", "P");
     }
 
     private void addBlankRank() {

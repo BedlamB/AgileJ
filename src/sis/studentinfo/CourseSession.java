@@ -1,9 +1,6 @@
 package sis.studentinfo;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 import javax.swing.text.html.CSS;
 
@@ -12,13 +9,13 @@ import javax.swing.text.html.CSS;
  * session of a specific university course.
  * @author Administrator
  */
-public class CourseSession implements Comparable<CourseSession>{
+public class CourseSession implements Comparable<CourseSession> {
 
     private static int count;
 
     private String department;
     private String number;
-    private ArrayList<Student> students =
+    private List<Student> students =
             new ArrayList<Student>();
     private Date startDate;
     private int numberOfCredits;
@@ -63,7 +60,7 @@ public class CourseSession implements Comparable<CourseSession>{
         students.add(student);
     }
 
-    public ArrayList<Student> getAllStudents() {
+    public List<Student> getAllStudents() {
         return students;
     }
 
@@ -101,6 +98,10 @@ public class CourseSession implements Comparable<CourseSession>{
 
     @Override
     public int compareTo(CourseSession session) {
-        return this.getDepartment().compareTo(session.getDepartment());
+        int compare = this.getDepartment().compareTo(session.getDepartment());
+        if (compare == 0) {
+            return this.getNumber().compareTo(session.getNumber());
+        }
+        return compare;
     }
 }

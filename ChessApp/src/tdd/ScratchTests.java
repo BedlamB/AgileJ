@@ -70,4 +70,34 @@ public class ScratchTests extends TestCase {
         assertEquals(0, "A".compareTo("A"));
         assertTrue("B".compareTo("A") > 0);
     }
+
+   public void testFloats() {
+       System.out.println("value = " + (3 * 0.3));
+   }
+
+    public void testFizzbuzz() {
+        for (int i = 1; i < 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0){
+                System.out.println("fizzbuzz");
+            }
+            else if (i % 3 == 0) {
+                System.out.println("fizz");
+            }
+            else if (i % 5 == 0) {
+                System.out.println("buzz");
+            }
+            else System.out.println(i);
+
+        }
+    }
+
+    public void testWhileFactorial() {
+        int num = 3;
+        int fact = 1;
+        while (num > 0){
+            fact = fact * num;
+            num--;
+        }
+        System.out.println(fact);
+    }
 }
