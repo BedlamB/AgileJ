@@ -9,8 +9,6 @@ public class Board {
 
     private ArrayList<ArrayList<Piece>> board = new ArrayList<ArrayList<Piece>>();
 
-
-
     public int pieceCount;
 
     public Board() {
@@ -19,60 +17,74 @@ public class Board {
 
     public void initialize() {
 
-        addRoyalRank("WHITE");
-        addWhitePawnRank();
-        addBlankRank();
-        addBlankRank();
-        addBlankRank();
-        addBlankRank();
+        addBlackRoyalRank();
         addBlackPawnRank();
-        addRoyalRank("BLACK");
+        addBlankRank();
+        addBlankRank();
+        addBlankRank();
+        addBlankRank();
+        addWhitePawnRank();
+        addWhiteRoyalRank();
 
     }
 
-    private void addRoyalRank(Piece.Colour colour) {
-        if (colour.toString() == "WHITE")
-        {
-            Piece.whiteCount += 8;
-        } else
-        {
-            Piece.blackCount += 8;
-        }
+    private void addBlackRoyalRank() {
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        rank.add(Piece.createPiece(Piece.Type.ROOK, colour));
-        rank.add(Piece.createPiece(Piece.Type.KNIGHT, colour));
-        rank.add(Piece.createPiece(Piece.Type.BISHOP, colour));
-        rank.add(Piece.createPiece(Piece.Type.QUEEN, colour));
-        rank.add(Piece.createPiece(Piece.Type.KING, colour));
-        rank.add(Piece.createPiece(Piece.Type.BISHOP, colour));
-        rank.add(Piece.createPiece(Piece.Type.KNIGHT, colour));
-        rank.add(Piece.createPiece(Piece.Type.ROOK, colour));
+        rank.add(Piece.createBlackRook());
+        rank.add(Piece.createBlackKnight());
+        rank.add(Piece.createBlackBishop());
+        rank.add(Piece.createBlackQueen());
+        rank.add(Piece.createBlackKing());
+        rank.add(Piece.createBlackBishop());
+        rank.add(Piece.createBlackKnight());
+        rank.add(Piece.createBlackRook());
+        board.add(rank);
+    }
+
+    private void addWhiteRoyalRank() {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        rank.add(Piece.createWhiteRook());
+        rank.add(Piece.createWhiteKnight());
+        rank.add(Piece.createWhiteBishop());
+        rank.add(Piece.createWhiteQueen());
+        rank.add(Piece.createWhiteKing());
+        rank.add(Piece.createWhiteBishop());
+        rank.add(Piece.createWhiteKnight());
+        rank.add(Piece.createWhiteRook());
+        board.add(rank);
+    }
+
+    private void addBlackPawnRank() {
+        ArrayList<Piece> rank = new ArrayList<Piece>();
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
+        rank.add(Piece.createBlackPawn());
         board.add(rank);
     }
 
     private void addWhitePawnRank() {
-        Piece.whiteCount += 8;
-        addRank("WHITE", "P");
-    }
-
-    private void addBlackPawnRank() {
-        Piece.blackCount += 8;
-        addRank("BLACK", "P");
-    }
-
-    private void addBlankRank() {
-        Piece blank = Piece.createPiece("", ".");
         ArrayList<Piece> rank = new ArrayList<Piece>();
-        for (int i = 0; i < 8; i++) {
-            rank.add(blank);
-        }
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
+        rank.add(Piece.createWhitePawn());
         board.add(rank);
     }
 
-    private void addRank(String colour, String name) {
+    private void addBlankRank() {
+        Piece blankPiece = Piece.noPiece;
         ArrayList<Piece> rank = new ArrayList<Piece>();
         for (int i = 0; i < 8; i++) {
-            rank.add(Piece.createPiece(colour, name));
+            rank.add(blankPiece);
         }
         board.add(rank);
     }
@@ -82,14 +94,21 @@ public class Board {
         StringBuilder rankString = new StringBuilder();
         for (ArrayList<Piece> rank : board) {
             for (Piece pawn : rank)
-                rankString.append(pawn.toString());
-                rankString.append(StringUtil.appendNewLine(""));
+                rankString.append(pawn.getRepresentation());
+            rankString.append(StringUtil.appendNewLine(""));
         }
         return rankString.toString();
     }
 
-    public int pieceCount() {
-        return pieceCount;
+    public int numberOfPieces(char representation, Piece.Colour colour) {
+        int count = 0;
+        for (ArrayList<Piece> rank : board) {
+            for (Piece piece : rank) {
+                if (piece.getRepresentation() == representation) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
-
 }

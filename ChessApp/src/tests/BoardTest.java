@@ -21,12 +21,14 @@ public class BoardTest extends TestCase {
                             blankRank +
                             blankRank +
                             blankRank +
-                            StringUtil.appendNewLine("PPPPPPPP") +
-                            StringUtil.appendNewLine("RNBQKBNR")
+                            StringUtil.appendNewLine("pppppppp") +
+                            StringUtil.appendNewLine("rnbqkbnr")
                             , board.toString());
         assertEquals(16, Piece.whiteCount);
         assertEquals(16, Piece.blackCount);
 
     }
+
+    public void testPi
 
 }
